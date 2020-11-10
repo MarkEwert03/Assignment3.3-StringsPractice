@@ -1,33 +1,28 @@
+//Mark Ewert
+//Nov 10, 2020
 
-/**
- * Write a description of class PPAP here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class PPAP
-{
-    // instance variables - replace the example below with your own
-    private int x;
+import java.util.Scanner;
 
-    /**
-     * Constructor for objects of class PPAP
-     */
-    public PPAP()
-    {
-        // initialise instance variables
-        x = 0;
+public class PPAP{
+    public static void main (String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please input your lyrics using the syntax:");
+        System.out.println("I have a <object 1>, I have a <object 2>");
+        String lyrics = sc.nextLine();
+        System.out.println(song(lyrics));
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public static String song(String str){
+        if (str.length() < 20) return "Too short";
+        String ans = "Uh!";
+        for (int i = str.length()-1; i > 3; i--){
+            if (str.substring(i-3, i).equals(" a ")){
+                ans += " " + str.substring(i, i+1).toUpperCase();
+                if (str.indexOf(",") < i) ans += str.substring(i+1);
+                else ans += str.substring(i+1, str.indexOf(","));
+            }
+        }
+        return ans;
     }
 }
