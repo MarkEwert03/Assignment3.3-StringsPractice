@@ -8,8 +8,11 @@ public class AnyToAny{
         Scanner sc = new Scanner(System.in);
 
         //get input value
-        System.out.print("Please input a value [0-9 & A-F] ");
-        String value = sc.nextLine();
+        String value = "";
+        while (!value.matches("[0-9,A-F]+")) {
+            System.out.print("Please input a value [0-9 & A-F] ");
+            value = sc.nextLine();
+        }
 
         //get base of the input value
         int inputBase = 0;
@@ -48,6 +51,7 @@ public class AnyToAny{
             else numIndex = Integer.parseInt(strIndex);
             numBase10 += numIndex*Math.pow(iBase, i);
         }
+
         //base 10 to output base
         String strOutputBase = "";
         while (numBase10 > 0){
@@ -68,7 +72,7 @@ public class AnyToAny{
         if (str.contains("C")) return 12;
         if (str.contains("B")) return 11;
         if (str.contains("A")) return 10;
-        
+
         int max = 0;
         int n = Integer.parseInt(str);
         while (n > 0){
