@@ -12,14 +12,13 @@ public class DecToBin{
         System.out.println(binConverter(num));
     }
 
-    public static int binConverter(int dec){
-        if (dec <= 0) return 0;
+    public static String binConverter(int dec){
+        if (dec <= 0) return "0";
         String binStr = "";
         for (int i = 0; dec > 0; i++){
             binStr = (dec%2) + binStr;
             dec /= 2;
         }
-        int binNum = Integer.parseInt(binStr);
-        return binNum;
+        return binStr;
     }
 }
