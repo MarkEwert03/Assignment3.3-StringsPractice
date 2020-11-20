@@ -36,6 +36,7 @@ public class AnyToAny{
     public static int anyConverter(String strInputBase, int iBase, int oBase){
         //0 in base anything will be 0
         if (strInputBase.equals("0")) return 0;
+        
         //input base to base 10
         int numBase10 = 0;
         for (int i = 0; i < strInputBase.length(); i++){

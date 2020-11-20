@@ -9,23 +9,21 @@ public class Palindrome{
 
         System.out.println("Please input a string");
         String response = sc.nextLine();
-        System.out.print("“" + response + "” ");
-        System.out.print(palChecker(cleanUp(response)));
+        System.out.print("\"" + response + "\" is ");
+        System.out.print(palindrome(cleanUp(response)));
     }
 
     public static String cleanUp(String str){
         String strC = str.toLowerCase();
         strC = strC.replaceAll(",", "").replaceAll(".", "").replaceAll(" ", "").replaceAll("_", "");
-        System.out.println(strC);
         return strC;
     }
 
-    public static String palChecker(String str){
-        String outcome = "", backwards = "";
+    public static boolean palindrome(String str){
+        String backwards = "";
         int len = str.length();
-        for (int i = str.length()-1; i >= 0; i--) backwards += str.charAt(i);
-        if (str.equals(backwards)) outcome = "is ";
-        else outcome = "is not ";
-        return outcome + "a palindrome";
+        for (int i = len-1; i >= 0; i--) backwards += str.charAt(i);
+        if (str.equals(backwards)) return true;
+        else return false;
     }
 }
