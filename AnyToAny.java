@@ -74,6 +74,7 @@ public class AnyToAny{
         if (str.contains("B")) return 11;
         if (str.contains("A")) return 10;
 
+        //digit cases
         int max = 0;
         int n = Integer.parseInt(str);
         while (n > 0){
